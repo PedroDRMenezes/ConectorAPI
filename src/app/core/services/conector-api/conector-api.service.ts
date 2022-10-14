@@ -15,10 +15,12 @@ export class ConectorApiService {
 
   public getApiByHttpClient(
     url: string,
-    headers: Array<HeaderList>
+    headers?: Array<HeaderList>,
+    parameters?: Array<ParametersList>
   ): Observable<any> {
     let httpOptions: HttpOptions = {};
-    ConectorApiHelper.setHttpOptionHeader(httpOptions, headers);
+    if(headers) ConectorApiHelper.setHttpOptionHeader(httpOptions, headers);
+    if(parameters) ConectorApiHelper.setHttpOptionParameter(httpOptions, parameters);
     return this.httpClient
       .get<any>(url, httpOptions)
       .pipe(catchError(this.hendleError));
@@ -26,14 +28,14 @@ export class ConectorApiService {
 
   public postApiByHttpClient(
     url: string,
-    headers: Array<HeaderList>,
-    parameters: Array<ParametersList>,
-    body: ObjectLiteral
+    body: ObjectLiteral,
+    headers?: Array<HeaderList>,
+    parameters?: Array<ParametersList>
   ): Observable<any> {
     let httpOptions: HttpOptions = {};
     let request: ObjectLiteral = ConectorApiHelper.setHttpRequest(body);
-    ConectorApiHelper.setHttpOptionHeader(httpOptions, headers);
-    ConectorApiHelper.setHttpOptionParameter(httpOptions, parameters);
+    if(headers) ConectorApiHelper.setHttpOptionHeader(httpOptions, headers);
+    if(parameters) ConectorApiHelper.setHttpOptionParameter(httpOptions, parameters);
     return this.httpClient
       .post<any>(url, request, httpOptions)
       .pipe(catchError(this.hendleError));
