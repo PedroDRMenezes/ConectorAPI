@@ -1,0 +1,22 @@
+<h1 class="text-center">Cadastrar produtos</h1>
+
+<div class="row g-3 align-items-center mt-3 d-block">
+    <form [formGroup]="form">
+    <div class="d-flex">
+        <div class="col-auto">
+            <input  id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="Produto" formControlName="name">
+        </div>
+    </div>
+    <div class="d-flex mb-4">
+
+        <div class="col-auto"> 
+            <input  id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="Categoria" formControlName="category">
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
+    </div>
+</form>
+</div>

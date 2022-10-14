@@ -1,0 +1,13 @@
+<h1 class="text-center mt-5 text-primary">Lista de emails</h1>
+<div class="row d-flex">
+    <div class="card me-3 mt-3" *ngFor='let emails of emails' style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Assunto: {{emails.assuntoEmail}}</h5>
+          <p class="card-text">Corpo do email</p>
+          <b>Data de envio:</b>
+          <div>
+          <a  class="btn btn-success mt-2">Enviado com sucesso</a>
+        </div>       
+         </div>
+      </div>
+</div>

@@ -1,0 +1,9 @@
+<h1 class="text-center mt-5 text-primary">Lista de produtos</h1>
+<div class="row d-flex">
+    <div class="card me-3 mt-3" *ngFor='let products of products'style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">Produto: {{products.name}} </h5>
+            <p class="card-text">Categoria: {{products.category}}</p>
+        </div>
+    </div>
+</div>
